@@ -54,14 +54,21 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a href="#home" className="group flex items-center gap-3" aria-label="IX — back to top">
           <span
-            className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl shadow-[0_4px_14px_-4px_var(--glow)] transition-transform duration-300 group-hover:scale-105"
-            style={{ background: "linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%)" }}
+            className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl shadow-[0_6px_18px_-6px_var(--glow)] transition-transform duration-300 group-hover:scale-105"
+            style={{ background: "linear-gradient(145deg, #3b82f6 0%, #1e40af 100%)" }}
           >
-            <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-white/25" aria-hidden />
-            <span className="font-display text-lg leading-none text-white">
-              {profile.initials}
+            <span
+              className="absolute inset-0 rounded-2xl ring-1 ring-white/20 ring-inset"
+              aria-hidden
+            />
+            <span
+              className="absolute -left-3 -top-3 h-8 w-8 rounded-full bg-white/10"
+              aria-hidden
+            />
+            <span className="relative font-display text-lg leading-none text-white">
+              IX
+              <span className="text-blue-200">.</span>
             </span>
-            <span className="absolute bottom-1 right-1 h-1.5 w-1.5 rounded-full bg-white" aria-hidden />
           </span>
           <span className="font-mono text-sm font-semibold uppercase tracking-widest transition-colors group-hover:text-accent">
             {profile.fullName}
