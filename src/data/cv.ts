@@ -2,9 +2,9 @@ export const profile = {
   fullName: "Talaat Ramadan",
   aka: "Talaat",
   initials: "TR",
-  role: [".NET Backend", "Developer"],
+  role: ["Software", "Engineer"],
   tagline: "Ship · Scale · Build",
-  subtitle: "Backend Developer · ASP.NET Core + CQRS · Cairo, remote",
+  subtitle: "ASP.NET Core + Laravel + NestJS · Cairo, remote",
   location: "Cairo, Egypt",
   issue: "Issue no. 01",
   edition: "Personal edition",
@@ -162,7 +162,6 @@ export const education = {
 };
 
 export const certifications = [
-  { name: "Building REST APIs with .NET", issuer: "DevCreed", date: "May 2026" },
   { name: "Object-Oriented Design", issuer: "University of Alberta – Coursera", date: "Sep 2023" },
 ];
 

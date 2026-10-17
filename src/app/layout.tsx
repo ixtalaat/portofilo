@@ -20,9 +20,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Talaat Ramadan — .NET Backend Developer",
+  title: "Talaat Ramadan — Software Engineer",
   description:
-    "Portfolio of Talaat Ramadan, .NET Backend Developer specializing in ASP.NET Core, Clean Architecture, CQRS and RESTful APIs. Based in Cairo, Egypt — remote friendly.",
+    "Portfolio of Talaat Ramadan, Software Engineer specializing in ASP.NET Core, Laravel and NestJS. Based in Cairo, Egypt — remote friendly.",
 };
 
 const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){document.documentElement.classList.add("dark")}})();`;

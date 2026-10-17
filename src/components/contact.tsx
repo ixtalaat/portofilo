@@ -30,8 +30,9 @@ export default function Contact() {
             <span className="block text-accent">something solid.</span>
           </p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-            Open to backend roles, freelance work and interesting .NET problems.
-            Drop a line and I&apos;ll get back to you.
+            Open to software engineering roles, freelance work and interesting
+            problems in ASP.NET Core, Laravel and NestJS. Drop a line and I&apos;ll
+            get back to you.
           </p>
           <a
             href="/CV.pdf"
