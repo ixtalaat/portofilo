@@ -158,7 +158,10 @@ export const projects: Project[] = [
     subtitle: "Academy Management System",
     kind: "Freelance Project",
     stack: ["C#", "ASP.NET Core MVC", "EF Core", "SQL Server", "ASP.NET Identity", "Docker"],
-    links: [{ label: "Source Code", href: "https://github.com/ixtalaat/Tamayoz" }],
+    links: [
+      { label: "Source Code", href: "https://github.com/ixtalaat/Tamayoz" },
+      { label: "Live Site", href: "https://tamayoz.runasp.net/" },
+    ],
     bullets: [
       "Built a full-stack academy management platform with service catalog, booking, portfolio, testimonials, contact messaging, and administration workflows.",
       "Implemented role-based administration, database modeling and seeding, security headers, response compression, health checks, and Docker deployment.",
