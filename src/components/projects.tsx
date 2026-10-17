@@ -20,6 +20,21 @@ export default function Projects() {
                 </span>
               </div>
               <p className="mt-1 text-sm text-muted">{project.subtitle}</p>
+              {project.links && (
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent hover:underline"
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
               <ul className="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-muted">
                 {project.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-2">

@@ -31,8 +31,8 @@ export default function Contact() {
           </p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
             Open to software engineering roles, freelance work and interesting
-            problems in ASP.NET Core, Laravel and NestJS. Drop a line and I&apos;ll
-            get back to you.
+            problems in .NET, Laravel and NestJS. Drop a line and I&apos;ll get
+            back to you.
           </p>
           <a
             href="/CV.pdf"

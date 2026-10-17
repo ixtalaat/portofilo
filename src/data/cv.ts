@@ -1,10 +1,10 @@
 export const profile = {
   fullName: "Talaat Ramadan",
-  aka: "Talaat",
-  initials: "TR",
+  aka: "IX",
+  initials: "IX",
   role: ["Software", "Engineer"],
   tagline: "Ship · Scale · Build",
-  subtitle: "ASP.NET Core + Laravel + NestJS · Cairo, remote",
+  subtitle: ".NET + Laravel + NestJS + Angular · Cairo, remote",
   location: "Cairo, Egypt",
   issue: "Issue no. 01",
   edition: "Personal edition",
@@ -33,6 +33,8 @@ export const skills = [
       "ASP.NET Identity",
       "CQRS",
       "MediatR",
+      "NestJS",
+      "Laravel",
     ],
   },
   {
@@ -44,6 +46,8 @@ export const skills = [
       "PostgreSQL",
       "MongoDB",
       "Redis",
+      "Prisma",
+      "Eloquent ORM",
       "Database Design",
     ],
   },
@@ -53,7 +57,7 @@ export const skills = [
   },
   {
     label: "Testing",
-    items: ["Unit Testing", "Integration Testing", "Pest", "PHPUnit"],
+    items: ["Unit Testing", "Integration Testing", "xUnit", "Jest", "Pest", "PHPUnit"],
   },
   {
     label: "DevOps & Tools",
@@ -70,6 +74,16 @@ export const experience = [
     bullets: [
       "Developed backend services and RESTful APIs for real-estate platforms, supporting property listings, user workflows, and business operations.",
       "Implemented and maintained backend business logic using clean architecture, SOLID principles, and modular design.",
+    ],
+  },
+  {
+    role: "Backend Developer Intern",
+    company: "DevOra",
+    place: "Remote",
+    period: "Sep 2026 – Oct 2026",
+    bullets: [
+      "Collaborating with a backend development team to build and maintain RESTful APIs for a trip management platform.",
+      "Developing trip, destination, and availability features using NestJS, Prisma, and PostgreSQL, following modular architecture and clean coding practices.",
     ],
   },
   {
@@ -101,12 +115,39 @@ export const experience = [
   },
 ];
 
-export const projects = [
+type Project = {
+  name: string;
+  subtitle: string;
+  kind: string;
+  stack: string[];
+  links?: { label: string; href: string }[];
+  bullets: string[];
+};
+
+export const projects: Project[] = [
+  {
+    name: "TravelTrips",
+    subtitle: "Trip Management API",
+    kind: "Internship Project",
+    stack: ["NestJS", "TypeScript", "Prisma", "PostgreSQL"],
+    links: [
+      {
+        label: "Source Code",
+        href: "https://github.com/DevOraIntern2026/travel-trips_Team5/tree/main/backend",
+      },
+    ],
+    bullets: [
+      "Developed backend APIs for managing destinations, trips, and trip availability using NestJS, TypeScript, Prisma, and PostgreSQL.",
+      "Implemented modular architecture with controllers, services, DTOs, validation, database relationships, and RESTful API endpoints.",
+      "Designed availability workflows for trip dates and capacity management while applying authentication and authorization principles.",
+    ],
+  },
   {
     name: "OrderFlow",
     subtitle: "Order Management System",
     kind: "Full-Stack Project",
     stack: ["C#", "ASP.NET Core", "EF Core", "SQL Server", "Angular", "TypeScript", "Docker"],
+    links: [{ label: "Source Code", href: "https://github.com/ixtalaat/OrderFlow" }],
     bullets: [
       "Built a full-stack order management platform with an Angular 20 storefront (catalog, cart, checkout, order tracking) and admin backoffice backed by a Clean Architecture + CQRS API.",
       "Implemented JWT authentication with refresh-token rotation, optimistic-concurrency inventory reservation, transactional outbox with Hangfire, and 180+ automated tests with Dockerized deployment.",
@@ -117,6 +158,7 @@ export const projects = [
     subtitle: "Academy Management System",
     kind: "Freelance Project",
     stack: ["C#", "ASP.NET Core MVC", "EF Core", "SQL Server", "ASP.NET Identity", "Docker"],
+    links: [{ label: "Source Code", href: "https://github.com/ixtalaat/Tamayoz" }],
     bullets: [
       "Built a full-stack academy management platform with service catalog, booking, portfolio, testimonials, contact messaging, and administration workflows.",
       "Implemented role-based administration, database modeling and seeding, security headers, response compression, health checks, and Docker deployment.",
@@ -127,6 +169,10 @@ export const projects = [
     subtitle: "Home Maintenance Platform",
     kind: "Freelance Project",
     stack: ["PHP", "Laravel", "MySQL", "Blade", "Tailwind CSS", "Pest", "Firebase"],
+    links: [
+      { label: "Source Code", href: "https://github.com/ixtalaat/hometech" },
+      { label: "Live Site", href: "https://hometech.up.railway.app/" },
+    ],
     bullets: [
       "Built a complete service lifecycle platform covering customer requests, technician assignment, scheduling, work orders, invoicing, payments, and reviews.",
       "Maintained 260+ feature and unit tests covering core business workflows, queued jobs, scheduled monitoring, and notifications.",
@@ -137,6 +183,10 @@ export const projects = [
     subtitle: "Kids Education Management System",
     kind: "Freelance Project",
     stack: ["PHP", "Laravel", "MySQL", "Blade", "Tailwind CSS", "PHPUnit", "WhatsApp API"],
+    links: [
+      { label: "Source Code", href: "https://github.com/ixtalaat/Bidaya" },
+      { label: "Live Site", href: "https://bidaya.up.railway.app/" },
+    ],
     bullets: [
       "Built a complete student lifecycle platform covering enrollment, scheduling, attendance, assessments, homework grading, payments, certificates, dashboards, and reports.",
       "Fully bilingual English/Arabic RTL interface with in-app and WhatsApp notifications, plus 190+ feature and unit tests.",
@@ -147,6 +197,7 @@ export const projects = [
     subtitle: "Parking Management System",
     kind: "Graduation Project · A+",
     stack: ["Node.js", "Express.js", "GraphQL", "PostgreSQL", "Redis"],
+    links: [{ label: "Source Code", href: "https://github.com/DrNykterstien/pickpark-api" }],
     bullets: [
       "Developed RESTful and GraphQL backend services for parking reservations, booking management, and availability tracking.",
       "Designed PostgreSQL schemas for booking workflows and implemented Redis caching to improve API performance.",
