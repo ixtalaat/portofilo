@@ -1,7 +1,6 @@
 export const profile = {
   fullName: "Talaat Ramadan",
-  aka: "IX",
-  initials: "IX",
+  initials: "TR",
   role: ["Software", "Engineer"],
   tagline: "Ship · Scale · Build",
   subtitle: ".NET + Laravel + NestJS + Angular · Cairo, remote",
@@ -15,7 +14,7 @@ export const profile = {
   github: "https://github.com/ixtalaat",
   linkedin: "https://www.linkedin.com/in/ixtalaat",
   summary:
-    "Backend Developer specializing in .NET and ASP.NET Core, with hands-on experience building RESTful APIs and working with Entity Framework Core and SQL databases. Familiar with Clean Architecture, authentication and authorization, dependency injection, and backend best practices. Passionate about writing clean, maintainable code and continuously improving problem-solving and system design skills.",
+    "I'm a software engineer passionate about building scalable and maintainable web applications.",
 };
 
 export const skills = [
