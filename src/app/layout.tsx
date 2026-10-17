@@ -20,9 +20,70 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ixtalaat.vercel.app"),
   title: "Talaat Ramadan — Software Engineer",
   description:
-    "Portfolio of Talaat Ramadan, Software Engineer specializing in ASP.NET Core, Laravel and NestJS. Based in Cairo, Egypt — remote friendly.",
+    "Portfolio of Talaat Ramadan, Software Engineer specializing in .NET, Laravel and NestJS. Based in Cairo, Egypt — remote friendly.",
+  openGraph: {
+    title: "Talaat Ramadan — Software Engineer",
+    description:
+      "Software Engineer specializing in .NET, Laravel and NestJS. Cairo, Egypt — remote friendly.",
+    url: "https://ixtalaat.vercel.app",
+    siteName: "Talaat Ramadan",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Talaat Ramadan — Software Engineer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Talaat Ramadan — Software Engineer",
+    description:
+      "Software Engineer specializing in .NET, Laravel and NestJS. Cairo, Egypt — remote friendly.",
+    images: ["/og.png"],
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Talaat Ramadan",
+  jobTitle: "Software Engineer",
+  email: "mailto:talatramadan10@gmail.com",
+  telephone: "+201126342642",
+  url: "https://ixtalaat.vercel.app",
+  image: "https://ixtalaat.vercel.app/portrait-cut.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cairo",
+    addressCountry: "EG",
+  },
+  sameAs: [
+    "https://github.com/ixtalaat",
+    "https://www.linkedin.com/in/ixtalaat",
+  ],
+  knowsAbout: [
+    "ASP.NET Core",
+    "Laravel",
+    "NestJS",
+    "Angular",
+    "C#",
+    "TypeScript",
+    "SQL Server",
+    "PostgreSQL",
+    "Clean Architecture",
+    "RESTful APIs",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Mapour",
+  },
 };
 
 const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){document.documentElement.classList.add("dark")}})();`;
@@ -36,6 +97,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <a
