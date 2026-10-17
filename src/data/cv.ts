@@ -56,7 +56,7 @@ export const skills = [
   },
   {
     label: "Testing",
-    items: ["Unit Testing", "Integration Testing", "xUnit", "Jest", "Pest", "PHPUnit"],
+    items: ["Unit Testing", "Integration Testing", "xUnit", "Jest", "Pest"],
   },
   {
     label: "DevOps & Tools",
