@@ -1,0 +1,45 @@
+import { projects } from "@/data/cv";
+import SectionHeader from "./section-header";
+
+export default function Projects() {
+  return (
+    <section id="projects" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <SectionHeader index="Section 03" title="Projects" kicker="Selected work" />
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {projects.map((project) => (
+          <article
+            key={project.name}
+            className="flex flex-col rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-accent"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-display text-3xl uppercase">{project.name}</h3>
+              <span className="rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                {project.kind}
+              </span>
+            </div>
+            <p className="mt-1 text-sm text-muted">{project.subtitle}</p>
+            <ul className="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-muted">
+              {project.bullets.map((bullet) => (
+                <li key={bullet} className="flex gap-2">
+                  <span className="text-accent">·</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-4">
+              {project.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
