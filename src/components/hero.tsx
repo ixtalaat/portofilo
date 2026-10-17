@@ -1,11 +1,10 @@
 import { profile } from "@/data/cv";
 import Portrait from "./portrait";
-import { DocIcon, GithubIcon, LinkedinIcon, MailIcon, XIcon } from "./icons";
+import { DocIcon, GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 
 const socials = [
   { label: "GitHub", href: profile.github, icon: <GithubIcon /> },
   { label: "LinkedIn", href: profile.linkedin, icon: <LinkedinIcon /> },
-  { label: "X", href: "https://x.com", icon: <XIcon /> },
 ];
 
 export default function Hero() {
