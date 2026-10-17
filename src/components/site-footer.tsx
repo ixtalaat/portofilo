@@ -7,7 +7,6 @@ export default function SiteFooter() {
         <span>
           © 2026 {profile.fullName}
         </span>
-        <span>Built with Next.js · Tailwind</span>
         <span>{profile.est}</span>
       </div>
     </footer>
