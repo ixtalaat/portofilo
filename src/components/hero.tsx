@@ -20,9 +20,7 @@ export default function Hero() {
             style={{ animationDelay: "60ms" }}
           >
             {profile.fullName.toUpperCase()}{" "}
-            <span className="font-mono text-sm font-medium tracking-[0.3em] text-muted">
-              a.k.a.
-            </span>{" "}
+            <span className="text-accent">·</span>{" "}
             <span className="text-accent">{profile.aka.toUpperCase()}</span>
           </p>
 
