@@ -66,8 +66,7 @@ export default function SiteHeader() {
               aria-hidden
             />
             <span className="relative font-display text-lg leading-none text-white">
-              IX
-              <span className="text-blue-200">.</span>
+              TR
             </span>
           </span>
           <span className="font-mono text-sm font-semibold uppercase tracking-widest transition-colors group-hover:text-accent">

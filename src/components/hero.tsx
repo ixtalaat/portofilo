@@ -19,22 +19,23 @@ export default function Hero() {
             className="rise-in font-display text-xl uppercase tracking-wide sm:text-2xl"
             style={{ animationDelay: "60ms" }}
           >
-            {profile.fullName.toUpperCase()}{" "}
-            <span className="text-accent">·</span>{" "}
-            <span className="text-accent">{profile.aka.toUpperCase()}</span>
+            {profile.fullName.toUpperCase()}
           </p>
 
           <h1 className="mt-4 font-display text-[17vw] leading-[0.85] uppercase sm:text-8xl lg:text-[7.5rem]">
             <span className="rise-in block text-cream" style={{ animationDelay: "160ms" }}>
               {profile.role[0]}
             </span>
-            <span className="rise-in block text-accent" style={{ animationDelay: "280ms" }}>
+            <span
+              className="rise-in block bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent"
+              style={{ animationDelay: "280ms" }}
+            >
               {profile.role[1]}
             </span>
           </h1>
 
           <p
-            className="rise-in mt-8 flex items-center gap-3 font-display text-xl uppercase tracking-wide sm:text-2xl"
+            className="rise-in mt-8 flex items-center gap-3 font-display text-xl uppercase tracking-wide text-accent sm:text-2xl"
             style={{ animationDelay: "400ms" }}
           >
             <span className="h-0.5 w-8 bg-accent" aria-hidden />

@@ -6,6 +6,6 @@
   </defs>
   <rect width="600" height="800" fill="#2563eb"/>
   <rect width="600" height="800" fill="url(#dots)"/>
-  <text x="300" y="430" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="180" font-weight="900" fill="#f2ede1" opacity="0.92">IX.</text>
+  <text x="300" y="430" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="180" font-weight="900" fill="#f2ede1" opacity="0.92">TR.</text>
   <text x="300" y="500" text-anchor="middle" font-family="Courier New, monospace" font-size="20" letter-spacing="8" fill="#f2ede1" opacity="0.75">ADD YOUR PHOTO</text>
 </svg>
