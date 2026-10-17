@@ -16,30 +16,45 @@ export default function Hero() {
       <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <p
-            className="rise-in font-display text-xl uppercase tracking-wide sm:text-2xl"
+            className="rise-in flex items-center gap-3 font-display text-xl uppercase tracking-wide sm:text-2xl"
             style={{ animationDelay: "60ms" }}
           >
+            <span className="h-5 w-1.5 rounded-full bg-accent" aria-hidden />
             {profile.fullName.toUpperCase()}
           </p>
 
-          <h1 className="mt-4 font-display text-[17vw] leading-[0.85] uppercase sm:text-8xl lg:text-[7.5rem]">
-            <span className="rise-in block text-cream" style={{ animationDelay: "160ms" }}>
+          <h1 className="-skew-x-3 mt-4 origin-left font-display text-[17vw] leading-[0.85] uppercase sm:text-8xl lg:text-[7.5rem]">
+            <span
+              className="rise-in text-shimmer block bg-gradient-to-r from-blue-500 via-accent to-blue-300 bg-clip-text text-transparent"
+              style={{
+                animationDelay: "160ms",
+                filter: "drop-shadow(0 0 28px var(--glow))",
+              }}
+            >
               {profile.role[0]}
             </span>
             <span
-              className="rise-in block bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent"
-              style={{ animationDelay: "280ms" }}
+              className="rise-in block text-transparent"
+              style={{
+                animationDelay: "280ms",
+                WebkitTextStroke: "2.5px var(--cream)",
+              }}
             >
               {profile.role[1]}
             </span>
           </h1>
 
           <p
-            className="rise-in mt-8 flex items-center gap-3 font-display text-xl uppercase tracking-wide text-accent sm:text-2xl"
+            className="rise-in mt-8 flex items-center gap-3 font-display text-xl uppercase tracking-wide sm:text-2xl"
             style={{ animationDelay: "400ms" }}
           >
-            <span className="h-0.5 w-8 bg-accent" aria-hidden />
-            {profile.tagline}
+            <span
+              className="h-0.5 w-8 bg-gradient-to-r from-blue-500 to-accent"
+              aria-hidden
+            />
+            <span className="bg-gradient-to-r from-blue-500 via-accent to-blue-300 bg-clip-text text-transparent">
+              {profile.tagline}
+            </span>
           </p>
 
           <p
