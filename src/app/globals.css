@@ -202,3 +202,84 @@ body {
     transform: none;
   }
 }
+
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rise-in,
+  .float-soft,
+  .text-shimmer {
+    animation: none;
+  }
+}
+
+@media print {
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #111827;
+    --muted: #4b5563;
+    --surface: #ffffff;
+    --border: #d1d5db;
+    --accent: #1d4ed8;
+    --accent-soft: #eef2ff;
+    --accent-solid: #1d4ed8;
+    --accent-onsoft: #1d4ed8;
+    --cream: #111827;
+    --glow: transparent;
+  }
+
+  header,
+  footer,
+  button,
+  a[download] {
+    display: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .rise-in,
+  .float-soft,
+  .text-shimmer {
+    animation: none !important;
+  }
+
+  .hero-glow::before {
+    display: none;
+  }
+
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  a[href^="http"]:not([aria-label])::after {
+    content: " (" attr(href) ")";
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 0.8em;
+    color: var(--muted);
+    word-break: break-all;
+  }
+
+  article,
+  li {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

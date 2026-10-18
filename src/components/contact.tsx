@@ -13,6 +13,7 @@ import {
   MailIcon,
   PhoneIcon,
   PinIcon,
+  PrinterIcon,
 } from "./icons";
 
 type Row = {
@@ -74,14 +75,24 @@ export default function Contact() {
             problems in .NET, Laravel and NestJS. Drop a line and I&apos;ll get
             back to you.
           </p>
-          <a
-            href="/CV.pdf"
-            download
-            className="animate-pill mt-8 inline-flex items-center gap-2 rounded-full bg-accent-solid px-5 py-3 text-sm font-semibold text-white"
-          >
-            <DocIcon className="h-4 w-4" />
-            Download CV
-          </a>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="/CV.pdf"
+              download
+              className="animate-pill inline-flex items-center gap-2 rounded-full bg-accent-solid px-5 py-3 text-sm font-semibold text-white"
+            >
+              <DocIcon className="h-4 w-4" />
+              Download CV
+            </a>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="animate-pill inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-muted transition-colors hover:border-accent hover:text-accent"
+            >
+              <PrinterIcon className="h-4 w-4" />
+              Print CV
+            </button>
+          </div>
         </Reveal>
 
         <ul className="space-y-3" aria-live="polite">
