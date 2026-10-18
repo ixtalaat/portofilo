@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { profile } from "@/data/cv";
 
-const PORTRAIT_SOURCES = ["/portrait-cut.webp", "/portrait-cut.png", "/portrait.svg"];
+const PORTRAIT_SOURCES = ["/portrait-cut.webp", "/portrait.svg"];
 
 export default function Portrait() {
   const [sourceIndex, setSourceIndex] = useState(0);
