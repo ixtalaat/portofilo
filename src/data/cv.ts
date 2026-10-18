@@ -131,12 +131,6 @@ export const projects: Project[] = [
     subtitle: "Trip Management API",
     kind: "Internship Project",
     stack: ["NestJS", "TypeScript", "Prisma", "PostgreSQL"],
-    links: [
-      {
-        label: "Source Code",
-        href: "https://github.com/DevOraIntern2026/travel-trips_Team5/tree/main/backend",
-      },
-    ],
     bullets: [
       "Developed backend APIs for managing destinations, trips, and trip availability using NestJS, TypeScript, Prisma, and PostgreSQL.",
       "Implemented modular architecture with controllers, services, DTOs, validation, database relationships, and RESTful API endpoints.",
