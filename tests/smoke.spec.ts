@@ -79,7 +79,22 @@ async function revealWholePage(page: import("@playwright/test").Page) {
     }
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(900);
+  // Layout can grow after web fonts swap, leaving trailing sections below the
+  // scroll range measured at the start — reveal those explicitly.
+  const stragglers = await page.$$(".reveal:not(.reveal-visible)");
+  for (const element of stragglers) {
+    await element.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(150);
+  }
+  await page.waitForFunction(
+    () =>
+      [...document.querySelectorAll<HTMLElement>(".reveal")].every(
+        (el) => getComputedStyle(el).opacity === "1",
+      ),
+    undefined,
+    { timeout: 20_000 },
+  );
+  await page.waitForTimeout(300);
 }
 
 async function seriousViolations(page: import("@playwright/test").Page) {
@@ -141,4 +156,54 @@ test("security headers are present", async ({ request }) => {
   expect(response.headers()["x-frame-options"]).toBe("DENY");
   expect(response.headers()["x-content-type-options"]).toBe("nosniff");
   expect(response.headers()["content-security-policy"]).toContain("frame-ancestors 'none'");
+});
+
+async function hiddenRevealCount(page: import("@playwright/test").Page) {
+  return page.$$eval(".reveal", (nodes) =>
+    nodes.filter((node) => getComputedStyle(node).opacity === "0").length,
+  );
+}
+
+test("all sections are visible without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  try {
+    await page.goto("/");
+    expect(await hiddenRevealCount(page)).toBe(0);
+  } finally {
+    await context.close();
+  }
+});
+
+test("print media shows all content and hides the site chrome", async ({ page }) => {
+  await page.goto("/");
+  await page.emulateMedia({ media: "print" });
+
+  expect(await hiddenRevealCount(page)).toBe(0);
+
+  const visibleHeaders = await page.$$eval(
+    "header",
+    (nodes) => nodes.filter((node) => getComputedStyle(node).display !== "none").length,
+  );
+  expect(visibleHeaders).toBe(0);
+
+  const visibleFooters = await page.$$eval(
+    "footer",
+    (nodes) => nodes.filter((node) => getComputedStyle(node).display !== "none").length,
+  );
+  expect(visibleFooters).toBe(0);
+});
+
+test("Print CV button invokes the print dialog", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => {
+    window.print = () => {
+      (window as unknown as { __printed?: boolean }).__printed = true;
+    };
+  });
+  await page
+    .getByRole("button", { name: /print cv/i })
+    .scrollIntoViewIfNeeded();
+  await page.getByRole("button", { name: /print cv/i }).click();
+  expect(await page.evaluate(() => (window as unknown as { __printed?: boolean }).__printed)).toBe(true);
 });
