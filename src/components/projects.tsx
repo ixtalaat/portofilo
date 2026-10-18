@@ -47,7 +47,7 @@ export default function Projects() {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent"
+                    className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-onsoft"
                   >
                     {tech}
                   </span>

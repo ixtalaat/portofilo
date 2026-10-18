@@ -70,7 +70,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="animate-pill inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white"
+              className="animate-pill inline-flex items-center gap-2 rounded-full bg-accent-solid px-5 py-3 text-sm font-semibold text-white"
             >
               <MailIcon className="h-4 w-4" />
               drop me a line

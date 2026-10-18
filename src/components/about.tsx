@@ -67,7 +67,7 @@ export default function About() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent"
+                      className="rounded-md bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-onsoft"
                     >
                       {item}
                     </li>

@@ -31,7 +31,7 @@ export default function Error({
         <button
           type="button"
           onClick={() => retry()}
-          className="animate-pill inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white"
+          className="animate-pill inline-flex items-center gap-2 rounded-full bg-accent-solid px-5 py-3 text-sm font-semibold text-white"
         >
           Try again
         </button>
