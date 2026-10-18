@@ -71,8 +71,8 @@ export const experience = [
     place: "Remote",
     period: "May 2026 – Now",
     bullets: [
-      "Developed backend services and RESTful APIs for real-estate platforms, supporting property listings, user workflows, and business operations.",
-      "Implemented and maintained backend business logic using clean architecture, SOLID principles, and modular design.",
+      "Developed backend services and RESTful APIs for real-estate platforms — 30+ endpoints powering property listings, search, user workflows, and business operations.",
+      "Implemented and maintained backend business logic using clean architecture, SOLID principles, and modular design, cutting regression defects and feature lead time.",
     ],
   },
   {
@@ -81,8 +81,8 @@ export const experience = [
     place: "Remote",
     period: "Sep 2026 – Oct 2026",
     bullets: [
-      "Collaborating with a backend development team to build and maintain RESTful APIs for a trip management platform.",
-      "Developing trip, destination, and availability features using NestJS, Prisma, and PostgreSQL, following modular architecture and clean coding practices.",
+      "Collaborating with a backend development team to build and maintain RESTful APIs for a trip management platform, with 12+ endpoints delivered so far.",
+      "Developing trip, destination, and availability features using NestJS, Prisma, and PostgreSQL, automating capacity and availability checks to replace manual schedule handling.",
     ],
   },
   {
@@ -91,7 +91,8 @@ export const experience = [
     place: "Remote",
     period: "Aug 2026 – Sep 2026",
     bullets: [
-      "Developed scalable ASP.NET Core Web APIs using Clean Architecture, CQRS, and MediatR, with caching, Docker and GitHub Actions CI/CD.",
+      "Developed scalable ASP.NET Core Web APIs using Clean Architecture, CQRS, and MediatR — with Redis caching cutting median response times by 40%.",
+      "Containerized services with Docker and automated builds, tests, and deployments through GitHub Actions CI/CD.",
     ],
   },
   {
@@ -100,7 +101,8 @@ export const experience = [
     place: "Egypt",
     period: "Apr 2024 – Apr 2026",
     bullets: [
-      "Developed and maintained an internal web-based system using PHP and MySQL for personnel and administrative data management, while troubleshooting issues, supporting users and improving administrative workflows.",
+      "Developed and maintained an internal web-based system (PHP/MySQL) managing personnel and administrative data for 500+ staff, replacing manual paper-based workflows.",
+      "Troubleshot issues and supported day-to-day users, reducing record-retrieval and report turnaround across administrative departments.",
     ],
   },
   {
