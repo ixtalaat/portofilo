@@ -25,3 +25,33 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Start production server
+        run: |
+          npm run start &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 >/dev/null && break
+            sleep 1
+          done
+      - name: Run Lighthouse
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: npx --yes lighthouse http://localhost:3000 --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=lh.json --chrome-flags="--headless=new --no-sandbox" --quiet
+      - name: Assert score thresholds
+        run: node scripts/check-lighthouse.mjs lh.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-report
+          path: lh.json
+          retention-days: 7
