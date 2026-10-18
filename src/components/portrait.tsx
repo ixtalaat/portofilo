@@ -4,8 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { profile } from "@/data/cv";
 
+const PORTRAIT_SOURCES = ["/portrait-cut.webp", "/portrait-cut.png", "/portrait.svg"];
+
 export default function Portrait() {
-  const [src, setSrc] = useState("/portrait-cut.png");
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const src = PORTRAIT_SOURCES[sourceIndex];
 
   return (
     <div className="relative mx-auto w-full max-w-md">
@@ -21,7 +24,9 @@ export default function Portrait() {
           priority
           sizes="(max-width: 1024px) 90vw, 40vw"
           className="relative object-cover object-[50%_15%]"
-          onError={() => setSrc("/portrait.svg")}
+          onError={() =>
+            setSourceIndex((index) => Math.min(index + 1, PORTRAIT_SOURCES.length - 1))
+          }
         />
       </div>
       <span className="absolute bottom-5 left-5 rounded-md bg-background/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-foreground backdrop-blur">

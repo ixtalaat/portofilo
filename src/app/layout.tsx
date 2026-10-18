@@ -21,6 +21,9 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ixtalaat.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Talaat Ramadan — Software Engineer",
   description:
     "Portfolio of Talaat Ramadan, Software Engineer specializing in .NET, Laravel and NestJS. Based in Cairo, Egypt — remote friendly.",
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Talaat Ramadan",
     images: [
       {
-        url: "/og.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Talaat Ramadan — Software Engineer",
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     title: "Talaat Ramadan — Software Engineer",
     description:
       "Software Engineer specializing in .NET, Laravel and NestJS. Cairo, Egypt — remote friendly.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
 };
 
@@ -58,7 +61,7 @@ const personJsonLd = {
   email: "mailto:talatramadan10@gmail.com",
   telephone: "+201126342642",
   url: "https://ixtalaat.vercel.app",
-  image: "https://ixtalaat.vercel.app/portrait-cut.png",
+  image: "https://ixtalaat.vercel.app/portrait-cut.webp",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cairo",
