@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+
+const onVercel = process.env.VERCEL === "1";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -135,7 +138,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         {children}
-        <Analytics />
+        {onVercel ? <Analytics /> : null}
+        {onVercel ? <SpeedInsights /> : null}
       </body>
     </html>
   );
