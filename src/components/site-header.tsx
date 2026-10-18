@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "@/data/cv";
 import ThemeToggle from "./theme-toggle";
 import { DocIcon } from "./icons";
@@ -19,6 +19,24 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [progress, setProgress] = useState(0);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -109,6 +127,7 @@ export default function SiteHeader() {
           </a>
           <ThemeToggle />
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
