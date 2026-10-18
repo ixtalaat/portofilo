@@ -34,6 +34,8 @@ export default function ThemeToggle() {
     } catch {
       // ignore storage errors
     }
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", next ? "#0b1120" : "#f4f1ea");
     emit();
   };
 

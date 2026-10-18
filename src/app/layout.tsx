@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,43 +54,64 @@ export const metadata: Metadata = {
   },
 };
 
-const personJsonLd = {
+const SITE_URL = "https://ixtalaat.vercel.app";
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Talaat Ramadan",
-  jobTitle: "Software Engineer",
-  email: "mailto:talatramadan10@gmail.com",
-  telephone: "+201126342642",
-  url: "https://ixtalaat.vercel.app",
-  image: "https://ixtalaat.vercel.app/portrait-cut.webp",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Cairo",
-    addressCountry: "EG",
-  },
-  sameAs: [
-    "https://github.com/ixtalaat",
-    "https://www.linkedin.com/in/ixtalaat",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Talaat Ramadan",
+      jobTitle: "Software Engineer",
+      email: "mailto:talatramadan10@gmail.com",
+      telephone: "+201126342642",
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/portrait-cut.webp`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Cairo",
+        addressCountry: "EG",
+      },
+      sameAs: [
+        "https://github.com/ixtalaat",
+        "https://www.linkedin.com/in/ixtalaat",
+      ],
+      knowsAbout: [
+        "ASP.NET Core",
+        "Laravel",
+        "NestJS",
+        "Angular",
+        "C#",
+        "TypeScript",
+        "SQL Server",
+        "PostgreSQL",
+        "Clean Architecture",
+        "RESTful APIs",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Mapour",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "Talaat Ramadan",
+      description:
+        "Portfolio of Talaat Ramadan, Software Engineer specializing in .NET, Laravel and NestJS.",
+      inLanguage: "en",
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
   ],
-  knowsAbout: [
-    "ASP.NET Core",
-    "Laravel",
-    "NestJS",
-    "Angular",
-    "C#",
-    "TypeScript",
-    "SQL Server",
-    "PostgreSQL",
-    "Clean Architecture",
-    "RESTful APIs",
-  ],
-  worksFor: {
-    "@type": "Organization",
-    name: "Mapour",
-  },
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){document.documentElement.classList.add("dark")}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");var dark=t!=="light";document.documentElement.classList.toggle("dark",dark);var m=document.querySelector('meta[name="theme-color"]');if(!m){m=document.createElement("meta");m.setAttribute("name","theme-color");document.head.appendChild(m)}m.content=dark?"#0b1120":"#f4f1ea"}catch(e){document.documentElement.classList.add("dark")}})();`;
+
+export const viewport: Viewport = {
+  themeColor: "#0b1120",
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -102,17 +124,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col">
         <a
           href="#home"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent-solid focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
         >
           Skip to content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
